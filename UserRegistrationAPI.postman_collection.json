@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "6f81caa9-e909-49cd-a2f2-cb4cecf77090",
+		"name": "UserRegistrationAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25763681"
+	},
+	"item": [
+		{
+			"name": "Create_UserDetails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\": 101,\r\n    \"fname\": \"Samarth\",\r\n    \"lname\": \"Sonawane\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"samarthsonawane1907@gmail.com\",\r\n    \"contact\": 7387363383,\r\n    \"addr\": \"Shivane\",\r\n    \"city\": \"Pune\",\r\n    \"state\": \"Maharashtra\",\r\n    \"pincode\": 411023\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read_UserDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "getAllUsers"
+			},
+			"response": []
+		},
+		{
+			"name": "Update_UserDetails",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\": 101,\r\n    \"fname\": \"Saksham\",\r\n    \"lname\": \"Sonawane\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"samsonawanearogyam@gmail.com\",\r\n    \"contact\": 9637118557,\r\n    \"addr\": \"Bhagya Nagar\",\r\n    \"city\": \"Nanded\",\r\n    \"state\": \"Maharashtra\",\r\n    \"pincode\": 431105\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9092/api/user/107",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"user",
+						"107"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_UserDetails",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9092/api/users/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"users",
+						"52"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
