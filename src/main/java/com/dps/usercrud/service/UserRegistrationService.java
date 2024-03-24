@@ -16,4 +16,6 @@ public interface UserRegistrationService {
 	public void deleteUser(Integer userid);
 
 	public void updateUser(Integer userid, @Valid UserDetailsRequest userDetailsRequest);
+
+	public List<UserDetailsResponse> getUserByCity(String city);
 }

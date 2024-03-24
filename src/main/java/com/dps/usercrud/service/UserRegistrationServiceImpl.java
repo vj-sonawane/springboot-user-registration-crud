@@ -23,8 +23,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	public List<UserDetailsResponse> getAllUsers() {
 		final List<UserDetailsResponse> userResponses = new ArrayList<>();
 		List<UserDetails> users = registrationRepository.findAll();
-		users.stream()
-				.forEach(user -> userResponses.add(UserDetailsResponse.builder().id(user.getId()).fname(user.getFname())
+		users.forEach(user -> userResponses.add(UserDetailsResponse.builder().id(user.getId()).fname(user.getFname())
 						.lname(user.getLname()).gender(user.getGender()).address(user.getAddress()).city(user.getCity())
 						.contact(user.getContact()).email(user.getEmail()).pin(user.getPin()).state(user.getState())
 						.build()));
@@ -56,4 +55,16 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 				.contact(userDetailsRequest.getContact()).email(userDetailsRequest.getEmail()).build();
 		registrationRepository.save(updatedUser);
 	}
+
+	@Override
+	public List<UserDetailsResponse> getUserByCity(String city) {
+		final List<UserDetailsResponse> userResponses = new ArrayList<>();
+		List<UserDetails> users = registrationRepository.findUsersWithCity(city);
+		users.forEach(user -> userResponses.add(UserDetailsResponse.builder().id(user.getId()).fname(user.getFname())
+						.lname(user.getLname()).gender(user.getGender()).address(user.getAddress()).city(user.getCity())
+						.contact(user.getContact()).email(user.getEmail()).pin(user.getPin()).state(user.getState())
+						.build()));
+		return userResponses;
+	}
 }
+

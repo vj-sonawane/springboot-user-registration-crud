@@ -60,4 +60,12 @@ public interface UserRegistrationAPI {
 	ResponseEntity<Void> updateUser(@PathVariable("user_id") Integer userid,
 			@RequestBody @Valid UserDetailsRequest userDetailsRequest);
 
+	/**
+	 * @Query annotation demo
+	 * @param city
+	 * @return all users from mentioned city
+	 */
+	@GetMapping(value = "api/user/{city}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<List<UserDetailsResponse>> getUserByCity(@PathVariable("city") String city);
+
 }

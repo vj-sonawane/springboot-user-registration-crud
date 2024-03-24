@@ -45,4 +45,11 @@ public class UserRegistrationController implements UserRegistrationAPI {
 		return ResponseEntity.ok(null);
 	}
 
+	@Override
+	public ResponseEntity<List<UserDetailsResponse>> getUserByCity(String city) {
+		List<UserDetailsResponse> users = userRegistrationService.getUserByCity(city);
+		return ResponseEntity.ok(users);
+	}
+
+
 }
