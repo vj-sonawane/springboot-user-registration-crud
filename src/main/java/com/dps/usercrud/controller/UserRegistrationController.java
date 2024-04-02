@@ -51,5 +51,9 @@ public class UserRegistrationController implements UserRegistrationAPI {
 		return ResponseEntity.ok(users);
 	}
 
-
+	@Override
+	public ResponseEntity<List<UserDetailsResponse>> findByCityAndGenderPositionalBind(String city, String gender) {
+		List<UserDetailsResponse> users = userRegistrationService.findByCityAndGenderPositionalBind(city,gender);
+		return ResponseEntity.ok(users);
+	}
 }

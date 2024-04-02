@@ -18,4 +18,6 @@ public interface UserRegistrationService {
 	public void updateUser(Integer userid, @Valid UserDetailsRequest userDetailsRequest);
 
 	public List<UserDetailsResponse> getUserByCity(String city);
+
+	public List<UserDetailsResponse> findByCityAndGenderPositionalBind(String city, String gender);
 }

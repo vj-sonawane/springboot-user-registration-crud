@@ -66,5 +66,16 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 						.build()));
 		return userResponses;
 	}
+
+	@Override
+	public List<UserDetailsResponse> findByCityAndGenderPositionalBind(String city, String gender) {
+		final List<UserDetailsResponse> responses = new ArrayList<>();
+		List<UserDetails> users = registrationRepository.findByCityAndGenderPositionalBind(city, gender);
+		users.forEach(user -> responses.add(UserDetailsResponse.builder().id(user.getId()).fname(user.getFname())
+				.lname(user.getLname()).gender(user.getGender()).address(user.getAddress()).city(user.getCity())
+				.contact(user.getContact()).email(user.getEmail()).pin(user.getPin()).state(user.getState())
+				.build()));
+		return responses;
+	}
 }
 

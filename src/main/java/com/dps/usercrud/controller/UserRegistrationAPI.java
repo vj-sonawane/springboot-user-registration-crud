@@ -61,11 +61,23 @@ public interface UserRegistrationAPI {
 			@RequestBody @Valid UserDetailsRequest userDetailsRequest);
 
 	/**
-	 * @Query annotation demo
+	 * @Query annotation: Named Parameter
 	 * @param city
 	 * @return all users from mentioned city
 	 */
 	@GetMapping(value = "api/user/{city}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<List<UserDetailsResponse>> getUserByCity(@PathVariable("city") String city);
+
+	/**
+	 * @Query annotation: Positional Parameter
+	 * @param city
+	 * @param gender
+	 * @return number of male or female users from mentioned city
+	 */
+	@GetMapping(value = "api/user/{city}/{gender}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<List<UserDetailsResponse>> findByCityAndGenderPositionalBind(@PathVariable("city") String city,
+																				@PathVariable("gender")String gender);
+
+
 
 }
