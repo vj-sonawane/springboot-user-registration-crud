@@ -1,0 +1,32 @@
+
+#Port
+server:
+  port: '9092'
+
+#DMDS
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userregistration
+    username: root
+    password: ENC(4aev1KsnM4V0rym7xoVdWQ==)
+
+#LSFB
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+
+#logging
+logging:
+  level:
+    com:
+      dps:
+        usercrud: DEBUG
+
+
+
+

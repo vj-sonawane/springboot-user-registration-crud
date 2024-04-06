@@ -11,7 +11,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
 @Transactional
 public interface UserRegistrationRepository extends JpaRepository<UserDetails, Integer>{
 
