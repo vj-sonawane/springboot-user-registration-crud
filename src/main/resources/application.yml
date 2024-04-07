@@ -1,15 +1,19 @@
-
 #Port
 server:
   port: '9092'
 
-#DMDS
+#DMDS :: JasyptPasswordEncryption
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/userregistration
     username: root
     password: ENC(4aev1KsnM4V0rym7xoVdWQ==)
+
+#EnableColouredLogging
+  output:
+      ansi:
+        enabled: always
 
 #LSFB
   jpa:
@@ -20,13 +24,14 @@ spring:
     hibernate:
       ddl-auto: update
 
-#logging
+
+#logging :: packageLevelLogging
 logging:
   level:
     com:
       dps:
         usercrud: DEBUG
 
-
-
-
+#EnableLoggingLogInFile
+  file:
+    name: loggers.log
